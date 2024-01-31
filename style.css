@@ -1,0 +1,175 @@
+:root{
+  --primary: #fef6f6;
+  --bg-color: rgb(232, 126, 156);
+  --bg-envelope-color: #ffcedd;
+  --envelope-tab: #ffcedd;
+  --envelope-cover: #f7bdce;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --txt-color: #ed89a2;
+  --heart-color: rgb(254, 0, 148);
+}
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("https://i.pinimg.com/originals/60/35/1a/60351a31e6365049a1c4937c08893d3e.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  margin-top:25vh;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+}
+
+.container2 {
+  display: grid;
+  place-items: center;
+}
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+.envelope-wrapper > .envelope {
+  position: relative;
+  width: 300px;
+  height: 230px;
+}
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 130px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 100px solid var(--envelope-cover);
+  border-left: 150px solid var(--envelope-cover);
+}
+.envelope > .letter {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 80%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+}
+
+.envelope > .letter > .text {
+  font-family: 'Snell Roundhand', cursive;
+  color: var(--txt-color);
+  text-align: center;
+  font-size: 21px;
+}
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+.heart:before {
+  top: -7.5px;
+}
+.heart:after {
+  right: 7.5px;
+}
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+.flap > .envelope > .letter {
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+.flap > .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+.butt{
+  display: flex;
+  align-content: center;
+}
+button{
+  position:absolute;
+  width: 100px;
+  height: 50px;
+
+  border-radius: 30px;
+  border:2px #e05074;
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  font-size:30px;
+}
+
+.yes-btn:hover{
+background-color: rgb(255, 180, 215);
+color:rgb(248, 70, 165);
+}
+.yes-btn:active{
+  background-color: rgb(255, 0, 119);
+  color:rgb(255, 170, 215);
+  }
+  
+button:nth-child(1){
+  margin-left:-120px;
+  background-color: rgb(246, 83, 159);
+  color:aliceblue;
+ 
+}
+
+button:hover{
+  cursor:pointer;
+}
+button:nth-child(2){
+  margin-right:-100px;
+  color: grey;
+}
+
+.question{
+  opacity:0;
+}
+img{
+
+ height:10vh;
+}
+
+#image{
+  opacity:0;
+}
